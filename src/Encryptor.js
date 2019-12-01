@@ -1,7 +1,7 @@
-const nacl = require('libsodium-wrappers')
+const nacl = require('libsodium-wrappers');
 
 module.exports = async (key) => {
-    await nacl.ready
+    await nacl.ready;
     if(!key){
         throw 'no key'
     }
@@ -10,4 +10,4 @@ module.exports = async (key) => {
             return nacl.crypto_secretbox_easy(ciphertext,nonce,key);
         }
     })
-}
+};
