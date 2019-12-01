@@ -8,7 +8,7 @@ function setKey(key){
     } else {
         myKey = key
     }
- }
+}
 
 module.exports = async (key) => {
     await nacl.ready
