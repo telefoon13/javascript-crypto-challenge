@@ -16,8 +16,9 @@ module.exports = async (key) => {
     setKey(key);
 
     return Object.freeze({
-        encrypt: (ciphertext, nonce) => {
-            return nacl.crypto_secretbox_easy(ciphertext, nonce, key);
+        encrypt: (msg) => {
+            let nonce = nacl.randombytes_buf(_sodium.crypto_secretbox_NONCEBYTES);
+            return{ ciphertext: nacl.crypto_secretbox_easy(msg, nonce, key), nonce: nonce};
         }
     })
 };

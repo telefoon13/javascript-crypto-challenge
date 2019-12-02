@@ -5,7 +5,7 @@ const Encryptor = require('./Encryptor');
 let keyPair = null;
 
 function createKeyPair(){
-    keyPair = nacl.crypto_sign_keypair();
+    keyPair = nacl.crypto_kx_keypair();
 }
 
 module.exports = async (peer) => {
